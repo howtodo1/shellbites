@@ -14,7 +14,7 @@
   <script type="module">
     var solve = false;
 
-    const levels = [["hm/debian_mini_20240414_8681116511.ext2", "FIND A FLAG", "C77Ua11w8v2BoSBDFUk7"], ["hm/debian_mini_20240414_8681239050.ext2", "SAME THING", "L1SIX6H3B2UHuliiJngt"]]
+    const levels = [["hm/debian_mini_20240414_8681116511.ext2", "FIND A FLAG", "C77Ua11w8v2BoSBDFUk7"], ["hm/debian_mini_20240414_8681239050.ext2", "SIXTY FOUR", "L1SIX6H3B2UHuliiJngt"], ["hm/debian_mini_20240415_8681799090.ext2", "EXTRACT", "2Ox4LxXK2xw33wt3JRJm"]]
   function Utf8ArrayToStr(array) {
     var out, i, len, c;
     var char2, char3;
@@ -49,11 +49,14 @@
     return out;
 }
     console.log("test")
+    function up(){
+      document.body.style.background = "#07020f";
+    }
       async function VM(lnk, code){
         solve = false;
         var term = new Terminal({ convertEol: true });
         term.open(document.getElementById("terminal"));
-        if(code == "C77Ua11w8v2BoSBDFUk7"){ term.write(" \n  _ |_   _  | |   |_  o _|_  _   _ \n _> | | (/_ | |   |_) |  |_ (/_ _>\n\n shell bites is a small CTF game running entirely on your browser!\n To play, find and open the flag file.\n Once you open the file, the game will automatically progress.\n\n Good luck and happy hacking!\n\n Loading...\n")} else {
+        if(code == "C77Ua11w8v2BoSBDFUk7"){ term.write(" \n  _ |_   _  | |   |_  o _|_  _   _ \n _> | | (/_ | |   |_) |  |_ (/_ _>\n\n shell bites is a small CTF game that runs entirely on your browser!\n To play, find and open the flag file.\n Once you open the file, the game will automatically progress.\n\n Good luck and happy hacking!\n\n Loading...\n")} else {
           term.write(" \n  _ |_   _  | |   |_  o _|_  _   _ \n _> | | (/_ | |   |_) |  |_ (/_ _>\n\n Loading...\n")}
         
 
@@ -87,6 +90,8 @@
     term.onData((str) => {
       var audio = new Audio('/8-bit-kit-boop_C.wav');
       audio.play();
+      //document.body.style.background = "#110615";
+      //setTimeout(up, 100);
       for (let i = 0; i < str.length; i++) {
         send?.(str.charCodeAt(i));
       }
@@ -116,9 +121,11 @@
           document.getElementById("lvl").innerHTML = (nm + 1).toString();
           document.getElementById("txt").innerHTML = levels[nm][1];
           console.log("new");
-        VM(levels[nm][0], levels[nm][2])
         var audio = new Audio('/game-start-6104.mp3');
         audio.play();
+        //document.body.style.background = "#151019";
+        //setTimeout(up, 2000);
+        VM(levels[nm][0], levels[nm][2])
         setTimeout(doStuff, 50);
       }
       doStuff();
