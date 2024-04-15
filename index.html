@@ -14,7 +14,7 @@
   <script type="module">
     var solve = false;
 
-    const levels = [["hm/debian_mini_20240414_8681116511.ext2", "FIND A FLAG", "C77Ua11w8v2BoSBDFUk7"], ["hm/debian_mini_20240414_8681239050.ext2", "SIXTY FOUR", "L1SIX6H3B2UHuliiJngt"], ["hm/debian_mini_20240415_8681799090.ext2", "EXTRACT", "2Ox4LxXK2xw33wt3JRJm"]]
+    const levels = [["https://github.com/howtodo1/webvm/releases/download/ext2_image/debian_mini_20240415_8683683933.ext2", "FIND A FLAG", "C77Ua11w8v2BoSBDFUk7"], ["hm/debian_mini_20240414_8681239050.ext2", "SIXTY FOUR", "L1SIX6H3B2UHuliiJngt"], ["hm/debian_mini_20240415_8681799090.ext2", "EXTRACT", "2Ox4LxXK2xw33wt3JRJm"]]
   function Utf8ArrayToStr(array) {
     var out, i, len, c;
     var char2, char3;
@@ -64,7 +64,7 @@
         devices: [
           {
             name: "block1",
-            type: "split",
+            type: "block",
             url: lnk,
           },
         ],
